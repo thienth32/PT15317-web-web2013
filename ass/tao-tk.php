@@ -17,7 +17,7 @@ require_once "./lib/common.php";
     <main class="container-fluid">
         <!-- Form tạo mới tk -->
         <h3>Tạo mới tài khoản</h3>
-        <form action="luu-tao-tk.php" method="POST" 
+        <form action="<?= BASE_URL ?>luu-tao-tk.php" method="POST" 
                 enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
@@ -41,7 +41,7 @@ require_once "./lib/common.php";
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Ảnh đại diện</label>
-                        <input type="input" name="avatar" class="form-control">
+                        <input type="file" name="avatar" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Ngày sinh</label>

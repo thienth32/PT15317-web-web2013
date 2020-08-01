@@ -1,15 +1,21 @@
 <?php
 require_once "./lib/db.php";
 require_once "./lib/common.php";
+// lấy dữ liệu từ trên url => keyword
+$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : "";
+
+
 // query lấy danh sách user từ db
 $getUserQuery = "select * from users";
+
+if($keyword !== ""){
+    $getUserQuery .= " where name like '%$keyword%' or email like '%$keyword%' ";
+}
 
 $connect = getDbConnect();
 $stmt = $connect->prepare($getUserQuery);
 $stmt->execute();
 $users = $stmt->fetchAll();
-// echo "<pre>";
-// var_dump($users);die;
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +36,7 @@ $users = $stmt->fetchAll();
                 <div class="form-group row">
                     <label for="" class="col-sm-1 col-form-label">Từ khóa</label>
                     <div class="col-sm-4">
-                        <input type="text" name="keyword" class="form-control">
+                        <input type="text" name="keyword" class="form-control" value="<?= $keyword ?>">
                     </div>
                 </div>
             </form>

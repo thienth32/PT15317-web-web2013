@@ -25,6 +25,15 @@ $users = $stmt->fetchAll();
     <main class="container-fluid">
     <!-- Hiển thị danh sách users -->
         <div class="container">
+            <br>
+            <form action="" method="get">
+                <div class="form-group row">
+                    <label for="" class="col-sm-1 col-form-label">Từ khóa</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="keyword" class="form-control">
+                    </div>
+                </div>
+            </form>
             <table class="table table-stripped">
                 <thead>
                     <th>id</th>

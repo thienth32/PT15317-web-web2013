@@ -6,6 +6,20 @@ require_once "./lib/common.php";
 // 1. Nhận dữ liệu từ request
 $name = trim($_POST['name']);
 $nameErr = "";
+
+$email = $_POST['email'];
+$emailErr = "";
+
+$password = $_POST['password'];
+$passwordErr = "";
+
+$cfpassword = $_POST['cfpassword'];
+$cfpasswordErr = "";
+
+$birth_date = $_POST['birth_date'];
+$avatar = $_FILES['avatar'];
+
+// 2. Kiểm tra dữ liệu (validate)
 // ktra rỗng
 if(strlen($name) == 0){
     $nameErr = "Hãy nhập họ và tên";
@@ -15,23 +29,24 @@ if($nameErr === "" && (strlen($name) < 4 || strlen($name) > 30)){
     $nameErr = "Độ dài họ và tên nằm trong khoảng 4 - 30 ký tự";
 }
 
-$email = $_POST['email'];
-$emailErr = "";
-$password = $_POST['password'];
-$passwordErr = "";
-
-$cfpassword = $_POST['cfpassword'];
-$birth_date = $_POST['birth_date'];
-$avatar = $_FILES['avatar'];
-
-if($nameErr.$emailErr.$passwordErr != ""){
-    header('location: ' . BASE_URL . "tao-tk.php?nameerr=$nameErr&emailerr=$emailErr&passworderr=$passwordErr");
-    die;
+// ít nhất 6 ký tự
+// không chứa dấu cách
+$removeWhiteSpacePassword = str_replace(" ", "", $password);
+if(strlen($password < 6) || (strlen($removeWhiteSpacePassword) != strlen($password))){
+    $passwordErr = "Mật khẩu không thỏa mãn đk (ít nhất 6 ký tự và không chứa khoảng trắng)";
 }
 
-$path = "";
-// 2. Kiểm tra dữ liệu (validate)
+// giống với xác nhận mk
+if($password != $cfpasswordErr){
+    $cfpasswordErr = "Mật khẩu và xác nhận mật khẩu không khớp";
+}
+
+if($nameErr.$emailErr.$passwordErr.$cfpasswordErr != ""){
+    header('location: ' . BASE_URL . "tao-tk.php?nameerr=$nameErr&emailerr=$emailErr&passworderr=$passwordErr&cfpassworderr=$cfpasswordErr");
+    die;
+}
 // 3. Xử lý dữ liệu (bao gồm lưu ảnh)
+$path = "";
 // 3.1 thực hiện lưu ảnh
 if($avatar['size']>0){
     $filename = uniqid() . "-" . $avatar["name"];

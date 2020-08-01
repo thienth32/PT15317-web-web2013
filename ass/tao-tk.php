@@ -24,6 +24,9 @@ require_once "./lib/common.php";
                     <div class="form-group">
                         <label for="">Họ và tên</label>
                         <input type="text" name="name" class="form-control">
+                        <?php if(isset($_GET['nameerr'])):?>
+                            <span class="text-danger"><?= $_GET['nameerr'] ?></span>
+                        <?php endif ?>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
@@ -32,10 +35,16 @@ require_once "./lib/common.php";
                     <div class="form-group">
                         <label for="">Mật khẩu</label>
                         <input type="password" name="password" class="form-control">
+                        <?php if(isset($_GET['passworderr'])):?>
+                            <span class="text-danger"><?= $_GET['passworderr'] ?></span>
+                        <?php endif ?>
                     </div>
                     <div class="form-group">
                         <label for="">Xác nhận mật khẩu</label>
                         <input type="password" name="cfpassword" class="form-control">
+                        <?php if(isset($_GET['cfpassworderr'])):?>
+                            <span class="text-danger"><?= $_GET['cfpassworderr'] ?></span>
+                        <?php endif ?>
                     </div>
                 </div>
                 <div class="col-md-6">

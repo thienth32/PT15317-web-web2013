@@ -62,9 +62,8 @@ $insertQuery = "insert into users
                 values 
                     ('$name', '$email', '$path', 
                     '$hashPassword', 1, '$birth_date')";
-// var_dump($insertQuery);
-// die;
-// 5. Thực thi câu query với csdl
+
+                    // 5. Thực thi câu query với csdl
 $connect = getDbConnect();
 $stmt = $connect->prepare($insertQuery); // nạp câu sql query vào trong kết nối
 $stmt->execute(); // thực thi lệnh với csdl

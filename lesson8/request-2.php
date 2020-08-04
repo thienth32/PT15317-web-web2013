@@ -21,6 +21,8 @@ if(isset($_GET['newusername'])){
     // phiên làm việc - bắt đầu từ lúc trình duyệt gửi request đầu tiên lên server
     // kết thúc khi tất cả các services của trình duyệt được tắt hoàn toàn (tắt trình duyệt 
     // hoặc khởi động lại máy hoặc server bị khởi động lại)
+
+    
 // để bắt đầu sử dụng session ở request nào (file php nào có sử dụng session) thì cần khai báo
 // session_start() ở dòng đầu tiên của file
 

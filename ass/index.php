@@ -48,7 +48,7 @@ $users = $stmt->fetchAll();
                     <th width="70">Ảnh</th>
                     <th>Ngày sinh</th>
                     <th width="100">
-                        <a href="<?= BASE_URL?>tao-tk.php" class="btn btn-sm btn-success">
+                        <a href="<?= BASE_URL?>users/tao-tk.php" class="btn btn-sm btn-success">
                         Tạo mới
                         </a>
                     </th>
@@ -66,7 +66,7 @@ $users = $stmt->fetchAll();
                                 <?= datetimeConvert($cursor['birth_date'], "d/m/Y")?>
                             </td>
                             <td>
-                                <a href="<?= BASE_URL?>users-edit.php?id=<?= $cursor['id'] ?>"
+                                <a href="<?= BASE_URL?>users/edit.php?id=<?= $cursor['id'] ?>"
                                     class="btn btn-info btn-sm"
                                 >
                                 Sửa

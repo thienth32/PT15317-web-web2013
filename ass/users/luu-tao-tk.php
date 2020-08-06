@@ -1,6 +1,6 @@
 <?php
-require_once './lib/db.php';
-require_once "./lib/common.php";
+require_once '../lib/db.php';
+require_once "../lib/common.php";
 // xử lý dữ liệu để tạo ra tk trong csdl
 
 // 1. Nhận dữ liệu từ request
@@ -42,7 +42,7 @@ if($password != $cfpasswordErr){
 }
 
 if($nameErr.$emailErr.$passwordErr.$cfpasswordErr != ""){
-    header('location: ' . BASE_URL . "tao-tk.php?nameerr=$nameErr&emailerr=$emailErr&passworderr=$passwordErr&cfpassworderr=$cfpasswordErr");
+    header('location: ' . BASE_URL . "users/tao-tk.php?nameerr=$nameErr&emailerr=$emailErr&passworderr=$passwordErr&cfpassworderr=$cfpasswordErr");
     die;
 }
 // 3. Xử lý dữ liệu (bao gồm lưu ảnh)
@@ -50,7 +50,7 @@ $path = "";
 // 3.1 thực hiện lưu ảnh
 if($avatar['size']>0){
     $filename = uniqid() . "-" . $avatar["name"];
-    move_uploaded_file($avatar["tmp_name"], './public/uploads/' . $filename);
+    move_uploaded_file($avatar["tmp_name"], '../public/uploads/' . $filename);
     $path = 'public/uploads/' . $filename;
 }
 // mã hóa mật khẩu

@@ -1,50 +1,52 @@
 <?php
+require_once "../lib/db.php";
+require_once "../lib/common.php";
 
-require_once "./lib/common.php";
+$userId = isset($_GET['id']) ? $_GET['id']: 0;
+
+$connect = getDbConnect();
+$getUserByIdQuery = "select * from users where id = $userId";
+$stmt = $connect->prepare($getUserByIdQuery);
+$stmt->execute();
+$user = $stmt->fetch();
+
+if(!$user){
+    header("location: " . BASE_URL);
+    die;
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT15317-web Assignment</title>
-    <?php include_once "./_share/style.php" ?>
+    <?php include_once "../_share/style.php" ?>
 </head>
 <body>
-    <?php include_once "./_share/header.php" ?>  
+    <?php include_once "../_share/header.php" ?>  
     <main class="container-fluid">
         <!-- Form tạo mới tk -->
-        <h3>Tạo mới tài khoản</h3>
-        <form action="<?= BASE_URL ?>luu-tao-tk.php" method="POST" 
+        <h3>Chỉnh sửa tài khoản</h3>
+        <form action="<?= BASE_URL ?>users/luu-tao-tk.php" method="POST" 
                 enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Họ và tên</label>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name"
+                            value="<?= $user['name'] ?>"
+                            class="form-control">
                         <?php if(isset($_GET['nameerr'])):?>
                             <span class="text-danger"><?= $_GET['nameerr'] ?></span>
                         <?php endif ?>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Mật khẩu</label>
-                        <input type="password" name="password" class="form-control">
-                        <?php if(isset($_GET['passworderr'])):?>
-                            <span class="text-danger"><?= $_GET['passworderr'] ?></span>
-                        <?php endif ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Xác nhận mật khẩu</label>
-                        <input type="password" name="cfpassword" class="form-control">
-                        <?php if(isset($_GET['cfpassworderr'])):?>
-                            <span class="text-danger"><?= $_GET['cfpassworderr'] ?></span>
-                        <?php endif ?>
+                        <input type="text" disabled 
+                            value="<?= $user['email'] ?>"
+                            class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">

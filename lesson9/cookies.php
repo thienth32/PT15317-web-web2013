@@ -7,5 +7,5 @@ $expireTime = strtotime("+5 minutes");
 
 setcookie($name, $value, $expireTime, "/");
 
-echo "Hãy kiểm tra cookies ở trình duyệt"
+echo "Hãy kiểm tra cookies ở trình duyệt";
 ?>

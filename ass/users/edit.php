@@ -56,7 +56,9 @@ if(!$user){
                     </div>
                     <div class="form-group">
                         <label for="">Ngày sinh</label>
-                        <input type="text" name="birth_date" class="form-control">
+                        <input type="text" name="birth_date" 
+                            value="<?= $user['birth_date'] ?>"
+                            class="form-control">
                     </div>
                 </div>
             </div>

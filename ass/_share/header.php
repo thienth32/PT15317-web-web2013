@@ -12,9 +12,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Sản phẩm</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
                 <?php if(isset($_SESSION['auth']) && !empty($_SESSION['auth'])): ?>
                     <li>
                         <a href="javascript:;" class="nav-link">

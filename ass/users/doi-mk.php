@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./lib/common.php";
+require_once "../lib/common.php";
 checkAuth();
 $user = $_SESSION['auth'];
 
@@ -11,10 +11,10 @@ $user = $_SESSION['auth'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đổi mk</title>
-    <?php include_once "./_share/style.php" ?>
+    <?php include_once "../_share/style.php" ?>
 </head>
 <body>
-    <?php include_once "./_share/header.php" ?>  
+    <?php include_once "../_share/header.php" ?>  
     <main class="container-fluid">
         <div class="container">
             <div class="row">

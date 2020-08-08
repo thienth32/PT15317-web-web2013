@@ -18,6 +18,7 @@ $user = $stmt->fetch();
 // nếu có thì so sánh mk nhập vào với mk trong db xem có khớp không
 if($user && password_verify($password, $user['password'])){
     $_SESSION['auth'] = [
+        'id' => $user['id'],
         'name' => $user['name'],
         'email' => $user['email'],
         'avatar' => $user['avatar']

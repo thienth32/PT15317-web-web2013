@@ -8,7 +8,9 @@ $connect = getDbConnect();
 $getUserByIdQuery = "select * from users where id = $userId";
 $stmt = $connect->prepare($getUserByIdQuery);
 $stmt->execute();
-$user = $stmt->fetch();
+$user = $stmt->fetch(); 
+// fetch => tìm ra bản ghi đầu tiên thỏa mãn câu sql => [ 'id' => xxx, 'name' => 'xxx' ]
+// fetchAll => tìm ra tất cả các bản ghi thỏa mãn câu sql => [ [], [], [] ]
 
 if(!$user){
     header("location: " . BASE_URL);
@@ -48,17 +50,22 @@ if(!$user){
                             value="<?= $user['email'] ?>"
                             class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="">Ngày sinh</label>
+                        <input type="date" name="birth_date" 
+                            value="<?= $user['birth_date'] ?>"
+                            class="form-control">
+                    </div>
                 </div>
                 <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <img src="<?= BASE_URL . $user['avatar'] ?>" class="img-fluid">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Ảnh đại diện</label>
                         <input type="file" name="avatar" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Ngày sinh</label>
-                        <input type="text" name="birth_date" 
-                            value="<?= $user['birth_date'] ?>"
-                            class="form-control">
                     </div>
                 </div>
             </div>

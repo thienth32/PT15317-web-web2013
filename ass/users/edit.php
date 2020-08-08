@@ -31,7 +31,8 @@ if(!$user){
     <main class="container-fluid">
         <!-- Form tạo mới tk -->
         <h3>Chỉnh sửa tài khoản</h3>
-        <form action="<?= BASE_URL ?>users/luu-tao-tk.php" method="POST" 
+        <form action="<?= BASE_URL ?>users/luu-sua-tk.php?id=<?= $user['id'] ?>" 
+                method="POST" 
                 enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">

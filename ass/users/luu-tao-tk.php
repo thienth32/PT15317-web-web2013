@@ -39,7 +39,7 @@ if(strlen($password < 6) || (strlen($removeWhiteSpacePassword) != strlen($passwo
 }
 
 // giống với xác nhận mk
-if($password != $cfpasswordErr){
+if($password != $cfpassword){
     $cfpasswordErr = "Mật khẩu và xác nhận mật khẩu không khớp";
 }
 

@@ -40,6 +40,9 @@ $users = $stmt->fetchAll();
                     </div>
                 </div>
             </form>
+            <?php if(isset($_GET['msg'])):?>
+                <p class="text-danger"><?= $_GET['msg']?></p>
+            <?php endif?>
             <table class="table table-stripped">
                 <thead>
                     <th>id</th>

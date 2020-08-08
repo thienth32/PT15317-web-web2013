@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "./lib/db.php";
 require_once "./lib/common.php";
 // lấy dữ liệu từ trên url => keyword

@@ -24,7 +24,7 @@ $user = $_SESSION['auth'];
                         <div class="form-group">
                             <label for="">Tên tài khoản</label>
                             <input type="text" class="form-control" 
-                                    disabled    
+                                    disabled   
                                     value="<?= $user['name']?>">
                         </div>
                         <div class="form-group">
@@ -48,6 +48,5 @@ $user = $_SESSION['auth'];
             </div>
         </div>
     </main>
-
 </body>
 </html>

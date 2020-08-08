@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once '../lib/db.php';
 require_once "../lib/common.php";
-
+checkAuth();
 // lấy id trên đường dẫn xuống
 $userId = isset($_GET['id']) ? $_GET['id'] : -1;
 // kiểm tra xem id có tồn tại trong db hay không 

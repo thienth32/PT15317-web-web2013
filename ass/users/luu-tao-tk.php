@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once '../lib/db.php';
 require_once "../lib/common.php";
+checkAuth();
 // xử lý dữ liệu để tạo ra tk trong csdl
 
 // 1. Nhận dữ liệu từ request

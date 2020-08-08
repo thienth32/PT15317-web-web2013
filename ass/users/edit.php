@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once "../lib/db.php";
 require_once "../lib/common.php";
-
+checkAuth();
 $userId = isset($_GET['id']) ? $_GET['id']: 0;
 
 $connect = getDbConnect();

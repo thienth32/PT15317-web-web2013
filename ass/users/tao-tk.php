@@ -1,7 +1,7 @@
 <?php
-
+session_start();
 require_once "../lib/common.php";
-
+checkAuth();
 ?>
 
 <!DOCTYPE html>

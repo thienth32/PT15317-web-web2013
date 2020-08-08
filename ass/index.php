@@ -50,7 +50,7 @@ $users = $stmt->fetchAll();
                     <th>Email</th>
                     <th width="70">Ảnh</th>
                     <th>Ngày sinh</th>
-                    <th width="100">
+                    <th>
                         <a href="<?= BASE_URL?>users/tao-tk.php" class="btn btn-sm btn-success">
                         Tạo mới
                         </a>
@@ -71,9 +71,11 @@ $users = $stmt->fetchAll();
                             <td>
                                 <a href="<?= BASE_URL?>users/edit.php?id=<?= $cursor['id'] ?>"
                                     class="btn btn-info btn-sm"
-                                >
-                                Sửa
-                                </a>
+                                > Sửa </a>
+                                <a  onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này?')"
+                                    href="<?= BASE_URL?>users/remove.php?id=<?= $cursor['id'] ?>"
+                                    class="btn btn-danger btn-sm"
+                                > Xóa </a>
                             </td>
                         </tr>
                     <?php endforeach?>

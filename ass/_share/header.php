@@ -19,6 +19,9 @@
                         </a>
                     </li>
                     <li>
+                        <a class="nav-link" href="<?= BASE_URL. "users/doi-mk.php"?>">Đổi mk</a> 
+                    </li>
+                    <li>
                         <a class="nav-link" href="<?= BASE_URL. "logout.php"?>">Đăng xuất</a> 
                     </li>
                 <?php endif?>
